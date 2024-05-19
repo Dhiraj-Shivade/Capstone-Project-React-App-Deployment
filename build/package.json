@@ -1,0 +1,26 @@
+{
+  "name": "my-react-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "dhiraj_shivade",
+  "license": "ISC",
+  "description": "shopping-app",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dhiraj-Shivade/devops-build.git"
+  },
+  "keywords": [
+    "React"
+  ],
+  "bugs": {
+    "url": "https://github.com/Dhiraj-Shivade/devops-build/issues"
+  },
+  "homepage": "https://github.com/Dhiraj-Shivade/devops-build#readme",
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  }
+}
