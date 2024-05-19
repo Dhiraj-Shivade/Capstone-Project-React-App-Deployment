@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Determine the repo to pull the image from
+## Determine the repo to pull the image from
 if [ "$DOCKER_REPO" == "dev" ]; then
     REPO=$DOCKER_DEV_REPO
 elif [ "$DOCKER_REPO" == "prod" ]; then 

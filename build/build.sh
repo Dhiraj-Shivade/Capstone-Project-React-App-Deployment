@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Login to DockerHub
+# #Login to DockerHub
 echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 
 # Determine the branch name
