@@ -8,7 +8,7 @@ if [ "$GIT_BRANCH" == "origin/dev" ]; then
     # Build the Docker image
     docker-compose build -t my-react-app .
 
-    # For dev branch
+    ## For dev branch
     docker tag my-react-app:latest $DOCKER_DEV_REPO:latest
     docker push $DOCKER_DEV_REPO:latest
 
