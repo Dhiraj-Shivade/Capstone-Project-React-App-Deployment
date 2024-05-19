@@ -3,7 +3,7 @@
 # #Login to DockerHub
 echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 
-# Determine the branch name
+## Determine the branch name
 if [ "$GIT_BRANCH" == "origin/dev" ]; then
     # Build the Docker image
     docker-compose build -t my-react-app .
