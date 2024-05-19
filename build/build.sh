@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # #Login to DockerHub
-echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
 
 ## Determine the branch name
 if [ "$GIT_BRANCH" == "origin/dev" ]; then
