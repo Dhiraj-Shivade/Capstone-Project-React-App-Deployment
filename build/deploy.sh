@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# Pull the dev Docker image from Docker Hub
-docker-compose up -d
 # Determine the repo to pull the image from
 if [ "$DOCKER_REPO" == "dev" ]; then
     REPO=$DOCKER_DEV_REPO

@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# Build Docker image
-docker-compose build
 # Login to DockerHub
 echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 
