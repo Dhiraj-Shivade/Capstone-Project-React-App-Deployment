@@ -4,5 +4,3 @@ services:
     build: .
     ports:
       - "80:80"
-
-      
