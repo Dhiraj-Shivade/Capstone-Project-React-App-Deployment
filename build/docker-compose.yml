@@ -2,5 +2,6 @@ version: '3'
 services:
   web:
     build: .
+    image: my-react-app
     ports:
       - "80:80"
