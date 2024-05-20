@@ -15,11 +15,30 @@ if [ "$GIT_BRANCH" == "origin/dev" ]; then
     docker tag my-react-app:latest $DOCKER_DEV_REPO:latest
     docker push $DOCKER_DEV_REPO:latest
 
+    # Check if the docker push was successful
+    if [ $? -eq 0 ]; then
+        echo "Successfully built and pushed the image to $DOCKER_DEV_REPO"
+    else
+        echo "Failed to push the image to $DOCKER_DEV_REPO"
+        exit 1
+    fi
+
 elif [ "$GIT_BRANCH" == "origin/main" ]; then
     # Check if the latest commit on main includes a merge from dev
     if git log --format=%B --grep="Merge branch 'dev'"; then
         # For main branch (after merging dev into main)
         docker tag my-react-app:latest $DOCKER_PROD_REPO:latest
         docker push $DOCKER_PROD_REPO:latest
+
+        # Check if the docker push was successful
+        if [ $? -eq 0 ]; then
+            echo "Successfully built and pushed the image to $DOCKER_PROD_REPO"
+        else
+            echo "Failed to push the image to $DOCKER_PROD_REPO"
+            exit 1
+        fi
+    else
+        echo "Merge from dev branch not found in the latest commit on main. Skipping Docker image push to $DOCKER_PROD_REPO"
     fi
 fi
+
