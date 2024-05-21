@@ -7,15 +7,14 @@ cd /var/lib/jenkins/workspace/capston-project/build
 echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
 
 # Build the Docker image
-docker build -t my-react-app .
-
-# Tag the Built Image
-docker tag my-react-app:latest my-react-app:v1
+docker build -t my-react-app:latest .
 
 # Determine the branch name
 if [ "$GIT_BRANCH" == "origin/dev" ]; then
+    # Tag the Built Image
+    docker tag my-react-app:latest $DOCKER_DEV_REPO:my-react-app:v1
+
     ## For dev branch
-    
     docker push $DOCKER_DEV_REPO/my-react-app:v1
 
     # Check if the docker push was successful
@@ -29,6 +28,9 @@ if [ "$GIT_BRANCH" == "origin/dev" ]; then
 elif [ "$GIT_BRANCH" == "origin/main" ]; then
     # Check if the latest commit on main includes a merge from dev
     if git log --format=%B --grep="Merge branch 'dev'"; then
+        # Tag the Built Image
+        docker tag my-react-app:latest $DOCKER_PROD_REPO:my-react-app:v1
+        
         # For main branch (after merging dev into main)
         docker push $DOCKER_PROD_REPO/my-react-app:v1
 
