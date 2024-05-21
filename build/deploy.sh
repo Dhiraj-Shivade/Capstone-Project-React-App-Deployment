@@ -17,7 +17,7 @@ if [ $? -ne 0 ]; then
 fi
 
 # Run the container
-docker run -d -p 80:80 --name react_app_container $REPO:v1 sleep 3600
+docker run -d -p 80:80 $REPO:v1 sleep 3600
 
 
 # Check if the container run was successful
