@@ -15,3 +15,6 @@ COPY . .
 
 # Expose the port the app runs on i.e. port 80
 EXPOSE 80
+
+# Start the React app
+CMD ["npm", "start"]
