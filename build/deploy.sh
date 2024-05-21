@@ -8,7 +8,7 @@ elif [ "$DOCKER_REPO" == "prod" ]; then
 fi
 
 # Pull the image from the respective repository
-docker pull $REPO/my-react-app:v1
+docker pull $REPO:v1
 
 # Check if the image pull was successful.
 if [ $? -ne 0 ]; then
@@ -17,7 +17,7 @@ if [ $? -ne 0 ]; then
 fi
 
 # Run the container
-docker run -d -p 80:80 --name react_app_container $REPO/my-react-app:v1 sleep 3600
+docker run -d -p 80:80 --name react_app_container $REPO:v1 sleep 3600
 
 
 # Check if the container run was successful
