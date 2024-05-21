@@ -8,7 +8,7 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 
 # Update npm to the latest version
-RUN npm install -g npm@latest
+RUN npm install -g npm@6.14.18
 
 # Install dependencies
 RUN npm install
