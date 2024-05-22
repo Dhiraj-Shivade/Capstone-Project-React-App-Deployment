@@ -1,20 +1,11 @@
 # Use the official Node.js 14 Alpine image
-FROM node:14-alpine
+FROM nginx:alpine
 
-# Set the working directory
-WORKDIR /usr/src/app
-
-# Copy package.json and package-lock.json (if available)
-COPY package*.json ./
-
-# Install dependencies
-RUN npm install
+# Working directory
+WORKDIR /usr/share/nginx/html/
 
 # Copy the remaining application code
 COPY . .
 
-# Expose the port the app runs on i.e. port 80
+## Expose the port the app runs on i.e. port 80
 EXPOSE 80
-
-# Start the React app
-CMD ["npm", "start"]
