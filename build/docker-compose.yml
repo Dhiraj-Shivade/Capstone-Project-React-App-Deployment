@@ -4,4 +4,4 @@ services:
     build: .
     image: my-react-app
     ports:
-      - "5000:80"
+      - "80:80"

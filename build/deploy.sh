@@ -13,7 +13,7 @@ if [ $? -ne 0 ]; then
 fi
 
 # Run the container
-docker run -d -p 5000:80 my-react-app:v1 sleep 1800
+docker run -d -p 80:80 my-react-app-v1 sleep 1800
 
 
 # Check if the container run was successful
@@ -36,7 +36,7 @@ if [ $? -ne 0 ]; then
 fi
 
 # Run the container
-docker run -d -p 5000:80 my-react-app:v1 sleep 1800
+docker run -d -p 80:80 my-react-app-v1 sleep 1800
 
 
 # Check if the container run was successful

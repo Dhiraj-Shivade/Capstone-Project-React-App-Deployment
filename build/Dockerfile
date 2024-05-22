@@ -1,10 +1,10 @@
-# Use the official Node.js 14 Alpine image
-FROM nginx:alpine
+# Use the official nginx image
+FROM nginx
 
 # Working directory
-WORKDIR /usr/share/nginx/html/
+WORKDIR /usr/share/nginx/html
 
-# Copy the remaining application code
+# Copy the application code
 COPY . .
 
 ## Expose the port the app runs on i.e. port 80
