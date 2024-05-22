@@ -4,7 +4,7 @@
 if [ "$DOCKER_REPO" == "dev" ]; then
 
 # Pull the image from the respective repository
-docker pull $DOCKER_USERNAME/my-react-app:v1
+docker pull $DOCKER_DEV_REPO:my-react-app-v1
 
 # Check if the image pull was successful.
 if [ $? -ne 0 ]; then
@@ -13,7 +13,7 @@ if [ $? -ne 0 ]; then
 fi
 
 # Run the container
-docker run -d -p 80:80 my-react-app:v1
+docker run -d -p 5000:80 my-react-app:v1 sleep 1800
 
 
 # Check if the container run was successful
@@ -27,7 +27,7 @@ echo "Deployment successful"
 elif [ "$DOCKER_REPO" == "prod" ]; then 
 
 # Pull the image from the respective repository
-docker pull $DOCKER_USERNAME/my-react-app:v1
+docker pull $DOCKER_PROD_REPO:my-react-app-v1
 
 # Check if the image pull was successful.
 if [ $? -ne 0 ]; then
@@ -36,7 +36,7 @@ if [ $? -ne 0 ]; then
 fi
 
 # Run the container
-docker run -d -p 80:80 my-react-app:v1
+docker run -d -p 5000:80 my-react-app:v1 sleep 1800
 
 
 # Check if the container run was successful

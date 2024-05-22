@@ -12,10 +12,10 @@ docker build -t "my-react-app" .
 # Determine the branch name
 if [ "$GIT_BRANCH" == "origin/dev" ]; then
     # Tag the Built Image
-    docker tag my-react-app:latest $DOCKER_USERNAME/my-react-app:v1
+    docker tag my-react-app:latest $DOCKER_DEV_REPO:my-react-app-v1
 
     ## For dev branch
-    docker push $DOCKER_USERNAME/my-react-app:v1
+    docker push $DOCKER_DEV_REPO:my-react-app-v1
 
     # Check if the docker push was successful
     if [ $? -eq 0 ]; then
@@ -29,10 +29,10 @@ elif [ "$GIT_BRANCH" == "origin/main" ]; then
     # Check if the latest commit on main includes a merge from dev
     if git log --format=%B --grep="Merge branch 'dev'"; then
         # Tag the Built Image
-        docker tag my-react-app:latest $DOCKER_USERNAME/my-react-app:v1
+        docker tag my-react-app:latest $DOCKER_PROD_REPO:my-react-app-v1
 
         # For main branch (after merging dev into main)
-        docker push $DOCKER_USERNAME/my-react-app:v1
+        docker push $DOCKER_PROD_REPO:my-react-app-v1
 
         # Check if the docker push was successful
         if [ $? -eq 0 ]; then
